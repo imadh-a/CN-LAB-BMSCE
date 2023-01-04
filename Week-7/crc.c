@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<string.h>
 #define N strlen(gen_poly)
@@ -9,6 +10,7 @@ void XOR(){
     for(j = 1;j < N; j++)
     check_value[j] = (( check_value[j] == gen_poly[j])?'0':'1');
 }
+
 void crc(){
     for(i=0;i<N;i++)
         check_value[i]=data[i];
@@ -23,39 +25,39 @@ void crc(){
     }while(i<=data_length+N-1);
 }
 void receiver(){
-    printf("Enter the received data: ");
+    printf("Enter the date received at receiver site: ");
     scanf("%s", data);
     printf("Data received: %s", data);
     crc();
     for(i=0;(i<N-1) && (check_value[i]!='1');i++);
         if(i<N-1){
-            printf("\nCRC or Check value is : %s",check_value);
-            printf("\nError detected\n\n");
+            printf("\nCRC or Check value is at receiver site: %s",check_value);
+            printf("\nError detected!\n\n");
         }
             
         else{
-            printf("\nCRC or Check value is : %s",check_value);
+            printf("\nCRC or Check value at receiver site is : %s",check_value);
              printf("\nNo error detected\n\n");
         }
 }
 int main(){
     printf("\nEnter data to be transmitted: ");
     scanf("%s",data);
-    printf("\n Enter the Generating polynomial: ");
+    printf("\nEnter the Generating polynomial: ");
     scanf("%s",gen_poly);
 
     data_length=strlen(data);
  
     for(i=data_length;i<data_length+N-1;i++)
         data[i]='0';
-    printf("\n Data padded with n-1 zeros : %s",data);
+    printf("\nData padded with n-1 zeros: %s",data);
     crc();
 
-    printf("\nCRC or Check value is : %s",check_value);
+    printf("\nCRC or Check value at sender site is: %s",check_value);
   
     for(i=data_length;i<data_length+N-1;i++)
         data[i]=check_value[i-data_length];
-  printf("\n Final data to be sent : %s",data);
+  printf("\nFinal data to be sent at receiver site: %s\n",data);
    receiver();
     return 0;
 }
