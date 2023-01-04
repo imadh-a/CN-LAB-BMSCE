@@ -13,7 +13,6 @@ void XOR(){
 void receiver(){
     printf("Enter the received data: ");
     scanf("%s", data);
-    printf("\n-----------------------------\n");
     printf("Data received: %s", data);
     crc();
     for(i=0;(i<N-1) && (check_value[i]!='1');i++);
@@ -50,22 +49,14 @@ int main(){
  
     for(i=data_length;i<data_length+N-1;i++)
         data[i]='0';
-    printf("\n----------------------------------------");
-
     printf("\n Data padded with n-1 zeros : %s",data);
-    printf("\n----------------------------------------");
-
     crc();
 
     printf("\nCRC or Check value is : %s",check_value);
   
     for(i=data_length;i<data_length+N-1;i++)
         data[i]=check_value[i-data_length];
-    printf("\n----------------------------------------");
-
-    printf("\n Final data to be sent : %s",data);
-    printf("\n----------------------------------------\n");
-
-    receiver();
-        return 0;
+  printf("\n Final data to be sent : %s",data);
+   receiver();
+    return 0;
 }
