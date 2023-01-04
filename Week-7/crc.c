@@ -9,7 +9,6 @@ void XOR(){
     for(j = 1;j < N; j++)
     check_value[j] = (( check_value[j] == gen_poly[j])?'0':'1');
 }
-
 void crc(){
     for(i=0;i<N;i++)
         check_value[i]=data[i];
