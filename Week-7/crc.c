@@ -31,12 +31,12 @@ void receiver(){
     crc();
     for(i=0;(i<N-1) && (check_value[i]!='1');i++);
         if(i<N-1){
-            printf("\nCRC or Check value is at receiver site: %s",check_value);
+            printf("\nCRC at receiver site is: %s",check_value);
             printf("\nError detected!\n\n");
         }
             
         else{
-            printf("\nCRC or Check value at receiver site is : %s",check_value);
+            printf("\nCRC at receiver site is: %s",check_value);
              printf("\nNo error detected\n\n");
         }
 }
@@ -50,14 +50,14 @@ int main(){
  
     for(i=data_length;i<data_length+N-1;i++)
         data[i]='0';
-    printf("\nData padded with n-1 zeros: %s",data);
+    printf("\nPadded Data: %s",data);
     crc();
 
-    printf("\nCRC or Check value at sender site is: %s",check_value);
+    printf("\nCRC at sender site is: %s",check_value);
   
     for(i=data_length;i<data_length+N-1;i++)
         data[i]=check_value[i-data_length];
-  printf("\nFinal data to be sent at receiver site: %s\n",data);
+  printf("\nFinal data to be sent from sender site: %s\n",data);
    receiver();
     return 0;
 }
