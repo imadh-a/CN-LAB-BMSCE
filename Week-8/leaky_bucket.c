@@ -4,13 +4,13 @@ int main() {
   int capacity=0;
   char ans='y';
   
-    printf("enter the bucket capacity : ");
+    printf("enter the bucket capacity: ");
     scanf("%d",&capacity);
-    printf("enter the leaking rate : ");
+    printf("enter the leaking rate: ");
     scanf("%d",&rate);
     while(ans=='y')
    {
-        printf("\nenter the packet size : ");
+        printf("\nenter the packet size: ");
         scanf("%d",&packet);
         
          if((bsize+packet) > capacity)
@@ -25,7 +25,7 @@ int main() {
         }
         bsize-=rate;
         printf("\nremaining bucket capacity is %d",bsize);
-        printf("\ndo you wish to keep adding packets? y/n : ");
+        printf("\ndo you wish to keep adding packets? y/n: ");
         scanf("%s",&ans);
     
 }
